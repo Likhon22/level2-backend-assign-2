@@ -9,6 +9,7 @@ const orderSchema = new Schema<TOrder>({
   productId: {
     type: String,
     required: true,
+    unique: true,
   },
   price: {
     type: Number,
