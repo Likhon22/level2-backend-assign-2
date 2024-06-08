@@ -10,5 +10,13 @@ app.use(express.json());
 app.get('/', (req: Request, res: Response) => {
   res.send('I am running ');
 });
+
 app.use('/api/products', productRoutes);
+
+app.all('*', (req: Request, res: Response) => {
+  res.status(404).json({
+    success: false,
+    message: 'Page not found',
+  });
+});
 export default app;
